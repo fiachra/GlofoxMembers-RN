@@ -16,7 +16,7 @@ import styles from './styles';
 class ListScreen extends Component {
   constructor(props) {
     super(props);
-
+    // this constructor defines the cutom state of the comonent
     this.state = {
       loading: false,
       data: [],
@@ -31,8 +31,9 @@ class ListScreen extends Component {
     this.makeRemoteRequest();
   }
 
+  //Make the request from the server 
   makeRemoteRequest = () => {
-    const { page, seed } = this.state;
+    const { page } = this.state;
     const url = `https://sandbox.glofox.com/2.0/members?page=${page}&limit=12`;
     this.setState({ loading: true });
     const fetchParam = {
@@ -129,6 +130,7 @@ class ListScreen extends Component {
               )}
               keyExtractor={item => item.email}
               ItemSeparatorComponent={this.renderSeparator}
+              //Here we bind the functions needed for lazy loading and refreshing
               onRefresh={this.handleRefresh}
               refreshing={this.state.refreshing}
               onEndReached={this.handleLoadMore}
