@@ -134,7 +134,7 @@ class ListScreen extends Component {
               onRefresh={this.handleRefresh}
               refreshing={this.state.refreshing}
               onEndReached={this.handleLoadMore}
-              onEndReachedThreshold={0}
+              onEndReachedThreshold={3}
             />
           </List>
       </View>
